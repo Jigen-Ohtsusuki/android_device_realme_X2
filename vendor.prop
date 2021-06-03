@@ -246,6 +246,9 @@ telephony.lteOnCdmaDevice=1
 vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 ro.telephony.default_network=22,22
 
+# SurfaceFlinger
+ro.surface_flinger.supports_background_blur=1
+
 # USB
 sys.usb.mtp.batchcancel=1
 vendor.usb.diag.func.name=diag
