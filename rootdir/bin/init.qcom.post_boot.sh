@@ -3349,8 +3349,11 @@ case "$target" in
       setprop vendor.dcvs.prop 1
 
             # cpuset parameters
-            echo 0-5 > /dev/cpuset/background/cpus
-            echo 0-5 > /dev/cpuset/system-background/cpus
+            echo 0-7     > /dev/cpuset/top-app/cpus
+    		echo 0-5,7   > /dev/cpuset/foreground/cpus
+    		echo 4-5     > /dev/cpuset/background/cpus
+    		echo 2-5     > /dev/cpuset/system-background/cpus
+    		echo 2-5     > /dev/cpuset/restricted/cpus
 
             # Turn on sleep modes.
             echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
@@ -3444,8 +3447,11 @@ case "$target" in
             setprop vendor.dcvs.prop 1
 
             # cpuset parameters
-                echo 0-5 > /dev/cpuset/background/cpus
-                echo 0-5 > /dev/cpuset/system-background/cpus
+            	echo 0-7     > /dev/cpuset/top-app/cpus
+                echo 0-5,7   > /dev/cpuset/foreground/cpus
+   				echo 4-5     > /dev/cpuset/background/cpus
+    			echo 2-5     > /dev/cpuset/system-background/cpus
+    			echo 2-5     > /dev/cpuset/restricted/cpus
 
                 # Turn on sleep modes.
                 echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
