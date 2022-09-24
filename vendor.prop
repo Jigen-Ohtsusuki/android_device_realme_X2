@@ -224,7 +224,6 @@ persist.vendor.radio.data_con_rprt=1
 persist.vendor.radio.data_ltd_sys_ind=1
 persist.vendor.radio.force_ltd_sys_ind=1
 persist.vendor.radio.redir_party_num=1
-persist.sys.fflag.override.settings_provider_model=false
 vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 
 # USB
