@@ -306,6 +306,12 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     vendor/nxp/opensource/sn100x
 
+# Improve scrolling
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.scrollingcache=0 \
+    ro.min.fling_velocity=160 \
+    ro.max.fling_velocity=20000
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
