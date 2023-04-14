@@ -232,6 +232,9 @@ persist.vendor.radio.force_ltd_sys_ind=1
 persist.vendor.radio.redir_party_num=1
 vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 
+# Phase offsets
+debug.sf.early.sf.duration=16000000
+
 # USB
 vendor.usb.diag.func.name=diag
 vendor.usb.dpl.inst.name=dpl
