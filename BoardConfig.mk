@@ -175,5 +175,8 @@ WIFI_DRIVER_DEFAULT := qca_cld3
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 
+# HWUI
+HWUI_COMPILE_FOR_PERF := true
+
 # Inherit from the proprietary version
 include vendor/realme/X2/BoardConfigVendor.mk
