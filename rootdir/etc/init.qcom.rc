@@ -518,6 +518,20 @@ on property:sys.boot_completed=1
     # Start perf
     setprop vendor.post_boot.parsed 1
 
+    # Configure dynamic stune boost
+    write /sys/module/cpu_boost/parameters/dynamic_stune_boost 15
+    write /sys/module/cpu_boost/parameters/dynamic_stune_boost_ms 1500
+    write /dev/stune/top-app/schedtune.sched_boost 15
+
+    # Enable suspend to RAM
+    write /sys/power/mem_sleep "deep"
+
+    # IRQ Tuning
+    # IRQ 124: msm_drm
+    # IRQ 379: kgsl-3d0
+    write /proc/irq/124/smp_affinity_list 2
+    write /proc/irq/379/smp_affinity_list 1
+
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
 
