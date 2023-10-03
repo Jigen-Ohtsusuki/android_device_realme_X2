@@ -308,6 +308,11 @@ PRODUCT_PACKAGES += \
     RealmeParts \
     RealmeProximityHelper
 
+# Parts
+PRODUCT_PACKAGES += \
+    RealmeParts \
+    RealmeProximityHelper
+
 # Perf
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.2.vendor
