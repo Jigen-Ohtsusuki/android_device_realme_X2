@@ -87,6 +87,9 @@ PRODUCT_PACKAGES += \
 TARGET_SCREEN_HEIGHT := 2240
 TARGET_SCREEN_WIDTH := 1080
 
+# Call the BCR setup
+$(call inherit-product-if-exists, vendor/bcr/bcr.mk)
+
 # Camera
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0 \
