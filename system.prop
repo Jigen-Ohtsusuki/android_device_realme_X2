@@ -139,3 +139,6 @@ persist.sys.sf.color_mode=1
 vendor.perf.gpu_profile=2
 ro.vendor.qti.sys.framerate=90
 ro.vendor.display.adfr.support=1
+
+# Face unlock
+ro.face.sense_service.camera_id=1
