@@ -247,6 +247,7 @@ ro.telephony.default_network=22,22
 
 # SurfaceFlinger
 ro.surface_flinger.supports_background_blur=1
+ro.surface_flinger.enable_layer_caching=false
 
 # USB
 sys.usb.mtp.batchcancel=1
