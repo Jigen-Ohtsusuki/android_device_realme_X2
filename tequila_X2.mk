@@ -11,6 +11,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 # Inherit some common tequila stuff.
 $(call inherit-product, vendor/tequila/config/common_full_phone.mk)
+TEQUILA_MAINTAINER := JigenxOhtsusuki
+TEQUILA_BUILDTYPE := OFFICIAL
 
 # Inherit from X2 device
 $(call inherit-product, device/realme/X2/device.mk)
