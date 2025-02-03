@@ -336,3 +336,11 @@ ro.vendor.powerhal.wlblock.enabled=1
 persist.sys.bootanimation=no
 persist.sys.shutdownanimation=no
 ro.config.power_decay=1
+
+# Faster Mobile Data & Wi-Fi
+persist.sys.powersave.mode=1
+ro.telephony.call_ring.delay=0
+ro.config.hw_fast_dormancy=1
+ro.vendor.net.tethering_wificond=1
+persist.vendor.radio.reset_on_switch=1
+ro.vendor.radio.norilreset=1
