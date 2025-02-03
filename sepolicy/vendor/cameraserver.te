@@ -1,2 +1,0 @@
-allow cameraserver property_socket:file write;
-allow cameraserver property_socket:sock_file write;
