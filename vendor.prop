@@ -325,3 +325,14 @@ persist.vendor.camera.eis.enable=1
 ro.config.media_vol_steps=30
 persist.audio.hifi=false
 persist.vendor.audio.low_latency=1
+
+# Battery Optimization
+ro.config.enable_power_save=1
+ro.config.low_battery_warning_level=25
+ro.config.avoid_garbage_collection=true
+
+# Reduce Unnecessary Wakelocks
+ro.vendor.powerhal.wlblock.enabled=1
+persist.sys.bootanimation=no
+persist.sys.shutdownanimation=no
+ro.config.power_decay=1
