@@ -36,11 +36,6 @@
         <fqname>@1.0::IGatekeeper/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.gnss</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IGnss/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.keymaster</name>
         <transport>hwbinder</transport>
         <fqname>@4.0::IKeymasterDevice/default</fqname>
@@ -65,19 +60,6 @@
         <name>android.hardware.nfc</name>
         <transport>hwbinder</transport>
         <fqname>@1.2::INfc/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.radio</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.2::ISap/slot1</fqname>
-        <fqname>@1.2::ISap/slot2</fqname>
-        <fqname>@1.4::IRadio/slot1</fqname>
-        <fqname>@1.4::IRadio/slot2</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.radio.config</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.1::IRadioConfig/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.renderscript</name>
@@ -155,21 +137,6 @@
         <fqname>@2.3::IFactory/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.gnss</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.2::ILocHidlGnss/gnss_vendor</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.gnss</name>
-        <transport>hwbinder</transport>
-        <fqname>@2.1::ILocHidlGnss/gnss_vendor</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.gnss</name>
-        <transport>hwbinder</transport>
-        <fqname>@3.0::ILocHidlGnss/gnss_vendor</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.qti.hardware.bluetooth_audio</name>
         <transport>hwbinder</transport>
         <fqname>@2.0::IBluetoothAudioProvidersFactory/default</fqname>
@@ -230,6 +197,11 @@
         <fqname>@1.0::IFstManager/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.hardware.iop</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.0::IIop/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.hardware.perf</name>
         <transport>hwbinder</transport>
         <fqname>@2.2::IPerf/default</fqname>
@@ -286,13 +258,12 @@
         <transport>hwbinder</transport>
         <fqname>@1.0::IWifiStats/wifiStats</fqname>
     </hal>
-    <!-- WFD HAL Service -->
     <hal format="hidl">
         <name>vendor.qti.hardware.wifidisplaysession</name>
         <transport>hwbinder</transport>
-        <fqname>@1.0::IWifiDisplaySession/wifidisplaysession</fqname>	
-        <fqname>@1.0::IWifiDisplaySessionVideoTrack/wifidisplaysessionvideotrack</fqname>	
-        <fqname>@1.0::IWifiDisplaySessionAudioTrack/wifidisplaysessionaudiotrack</fqname>	
+        <fqname>@1.0::IWifiDisplaySession/wifidisplaysession</fqname>
+        <fqname>@1.0::IWifiDisplaySessionVideoTrack/wifidisplaysessionvideotrack</fqname>
+        <fqname>@1.0::IWifiDisplaySessionAudioTrack/wifidisplaysessionaudiotrack</fqname>
         <fqname>@1.0::IWifiDisplaySessionImageTrack/wifidisplaysessionimagetrack</fqname>
     </hal>
     <hal format="hidl">
@@ -325,14 +296,12 @@
         <transport>hwbinder</transport>
         <fqname>@1.0::IQspmhal/default</fqname>
     </hal>
-    <!-- Data Link Latency -->
     <hal format="hidl">
         <name>vendor.qti.hardware.data.connection</name>
         <transport>hwbinder</transport>
         <fqname>@1.1::IDataConnection/slot1</fqname>
         <fqname>@1.1::IDataConnection/slot2</fqname>
     </hal>
-    <!-- IRADIO -->
     <hal format="hidl">
         <name>android.hardware.radio</name>
         <transport>hwbinder</transport>
@@ -341,49 +310,47 @@
         <fqname>@1.2::ISap/slot1</fqname>
         <fqname>@1.2::ISap/slot2</fqname>
     </hal>
-    <!-- RIL AUDIO HAL -->
+    <hal format="hidl">
+        <name>android.hardware.radio.config</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IRadioConfig/default</fqname>
+    </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.am</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IQcRilAudio/slot1</fqname>
         <fqname>@1.0::IQcRilAudio/slot2</fqname>
     </hal>
-    <!-- radio ims -->
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.ims</name>
         <transport>hwbinder</transport>
         <fqname>@1.6::IImsRadio/imsradio0</fqname>
         <fqname>@1.6::IImsRadio/imsradio1</fqname>
     </hal>
-    <!-- qcrilhook -->
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.qcrilhook</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IQtiOemHook/oemhook0</fqname>
         <fqname>@1.0::IQtiOemHook/oemhook1</fqname>
     </hal>
-    <!-- RIL UIM REMOTE CLIENT -->
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.uim_remote_client</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IUimRemoteServiceClient/uimRemoteClient0</fqname>
         <fqname>@1.0::IUimRemoteServiceClient/uimRemoteClient1</fqname>
     </hal>
-    <!-- RIL UIM REMOTE SERVER -->
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.uim_remote_server</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IUimRemoteServiceClient/uimRemoteClient0</fqname>
         <fqname>@1.0::IUimRemoteServiceClient/uimRemoteClient1</fqname>
     </hal>
-    <!-- RIL UIM LPA -->
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.lpa</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IUimLpa/UimLpa0</fqname>
         <fqname>@1.0::IUimLpa/UimLpa1</fqname>
     </hal>
-    <!-- RIL UIM -->
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.uim</name>
         <transport>hwbinder</transport>
@@ -395,11 +362,6 @@
         <transport>hwbinder</transport>
         <fqname>@1.0::IQtiRadio/slot1</fqname>
         <fqname>@1.0::IQtiRadio/slot2</fqname>
-    </hal>
-    <!-- Hidl service for 5G network apis -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.radio.qtiradio</name>
-        <transport>hwbinder</transport>
         <fqname>@2.4::IQtiRadio/slot1</fqname>
         <fqname>@2.4::IQtiRadio/slot2</fqname>
     </hal>
@@ -415,7 +377,6 @@
         <fqname>@1.0::IOplusImsRadio/oplusimsradio0</fqname>
         <fqname>@1.0::IOplusImsRadio/oplusimsradio1</fqname>
     </hal>
-    <!-- #ChangJian@TECH.NW.REG.2054403, 2019/05/25, add for Euclid -->
     <hal format="hidl">
         <name>vendor.oplus.hardware.radio</name>
         <transport>hwbinder</transport>

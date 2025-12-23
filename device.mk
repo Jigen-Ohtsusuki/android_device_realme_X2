@@ -320,5 +320,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libwfdaac_vendor
 
+PRODUCT_PACKAGES += libqti-perfd-client
+
 # Inherit from vendor if exists
 $(call inherit-product-if-exists, vendor/realme/X2/X2-vendor.mk)
