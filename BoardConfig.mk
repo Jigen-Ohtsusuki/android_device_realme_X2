@@ -126,8 +126,8 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno618
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
-TARGET_POWERHAL_BOOST_EXT := $(COMMON_PATH)/power/boost-ext.cpp
-TARGET_POWERHAL_MODE_EXT := $(COMMON_PATH)/power/mode-ext.cpp
+TARGET_POWERHAL_BOOST_EXT := $(DEVICE_PATH)/power/boost-ext.cpp
+TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/mode-ext.cpp
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
