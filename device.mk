@@ -282,11 +282,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/nfc_feature.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_has_nfc/nfc_feature.xml
 
-# Parts
-PRODUCT_PACKAGES += \
-    RealmeParts \
-    RealmeProximityHelper
-
 # Overlays
 PRODUCT_PACKAGES += \
     NotchBarKiller \
