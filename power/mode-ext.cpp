@@ -31,6 +31,7 @@
 #define LOG_TAG "QTI PowerHAL"
 
 #include <log/log.h>
+#include <dlfcn.h>
 
 #include <aidl/android/hardware/power/BnPower.h>
 
@@ -41,14 +42,39 @@ extern "C" {
 #include "power-common.h"
 #include "utils.h"
 
-const int kMaxLaunchDuration = 4000; /* ms */
+#ifndef CHECK_HANDLE
+#define CHECK_HANDLE(x) ((x) >= 0)
+#endif
+
+#ifndef VENDOR_HINT_FIRST_LAUNCH_BOOST
+#define VENDOR_HINT_FIRST_LAUNCH_BOOST 0x00001081
+#endif
+
+#ifndef LAUNCH_BOOST_V1
+#define LAUNCH_BOOST_V1 1
+#endif
+
+const int kMaxLaunchDuration = 4000;
+
+typedef int (*perf_hint_enable_with_type_t)(int, int, int);
 
 static int process_activity_launch_hint(void* data) {
     bool enabled = *((bool*) data);
     static int launch_handle = -1;
     static int launch_mode = 0;
+    static perf_hint_enable_with_type_t perf_hint_func = NULL;
 
-    // release lock early if launch has finished
+    if (perf_hint_func == NULL) {
+        void *handle = dlopen("libqti-perfd-client.so", RTLD_NOW);
+        if (handle) {
+            perf_hint_func = (perf_hint_enable_with_type_t)dlsym(handle, "perf_hint_enable_with_type");
+        }
+        if (perf_hint_func == NULL) {
+            ALOGE("Failed to load perf_hint_enable_with_type from libqti-perfd-client.so");
+            return HINT_NONE;
+        }
+    }
+
     if (!enabled) {
         if (CHECK_HANDLE(launch_handle)) {
             release_request(launch_handle);
@@ -59,8 +85,8 @@ static int process_activity_launch_hint(void* data) {
     }
 
     if (!launch_mode) {
-        launch_handle = perf_hint_enable_with_type(VENDOR_HINT_FIRST_LAUNCH_BOOST,
-                                                   kMaxLaunchDuration, LAUNCH_BOOST_V1);
+        launch_handle = perf_hint_func(VENDOR_HINT_FIRST_LAUNCH_BOOST,
+                                       kMaxLaunchDuration, LAUNCH_BOOST_V1);
         if (!CHECK_HANDLE(launch_handle)) {
             ALOGE("Failed to perform launch boost");
             return HINT_NONE;

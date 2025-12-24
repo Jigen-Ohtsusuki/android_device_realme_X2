@@ -33,8 +33,8 @@ public class DCModeSwitch implements OnPreferenceChangeListener {
             return FILE1;
         } else if (Utils.fileWritable(FILE2)) {
             return FILE2;
+        }
         return null;
-	}
     }
 
     public static boolean isSupported() {

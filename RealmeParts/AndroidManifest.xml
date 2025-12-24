@@ -39,7 +39,13 @@
         android:allowBackup="true"
         android:fullBackupContent="true">
 
-        <!-- Doze -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge"
+            tools:replace="android:authorities" />
+
         <activity
             android:name=".doze.DozeSettingsActivity"
             android:label="@string/ambient_display_gestures_title"
