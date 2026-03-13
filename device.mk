@@ -439,11 +439,6 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     vendor/nxp/opensource/sn100x
 
-# Improve scrolling
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.scrollingcache=0 \
-    ro.min.fling_velocity=160 \
-    ro.max.fling_velocity=20000
 
 # Speed profile services and wifi-service to reduce RAM and storage
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
