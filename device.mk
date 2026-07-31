@@ -6,6 +6,7 @@
 
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
+$(call soong_config_set_bool,libion,legacy_impl,true)
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
@@ -117,10 +118,6 @@ PRODUCT_PACKAGES += \
     libstdc++_vendor \
     vendor.qti.hardware.camera.device@1.0.vendor
 
-# Configstore
-PRODUCT_PACKAGES += \
-    disable_configstore
-
 # Dexpreopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
@@ -212,9 +209,7 @@ PRODUCT_PACKAGES += \
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-impl.recovery \
-    android.hardware.health@2.1-service
+    android.hardware.health-service.qti
 
 # HotwordEnrollement app permissions
 PRODUCT_COPY_FILES += \
@@ -435,7 +430,7 @@ PRODUCT_PACKAGES += \
 
 # VNDK
 PRODUCT_PACKAGES += \
-    libtinyxml2-v34
+    libtinyxml2-v34.vendor
 
 # Vendor Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_x2)
