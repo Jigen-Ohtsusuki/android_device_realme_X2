@@ -74,7 +74,7 @@ LOC_HIDL_VERSION := 4.0
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=1 androidboot.usbcontroller=a600000.dwc3 earlycon=msm_geni_serial,0x880000 loop.max_part=7
 BOARD_KERNEL_CMDLINE += androidboot.fstab_suffix=qcom
-BOARD_KERNEL_CMDLINE += androidboot.android_dt_dir=/non-existent  androidboot.boot_devices=soc/1d84000.ufshc
+#BOARD_KERNEL_CMDLINE += androidboot.android_dt_dir=/non-existent  androidboot.boot_devices=soc/1d84000.ufshc
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
@@ -123,8 +123,8 @@ BOARD_USES_METADATA_PARTITION := true
 BOARD_SUPER_PARTITION_BLOCK_DEVICES := odm system vendor
 BOARD_SUPER_PARTITION_METADATA_DEVICE := system
 BOARD_SUPER_PARTITION_ODM_DEVICE_SIZE := 268435456
-BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 1631584256
-BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE := 4320133120
+BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 4320133120
+BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE := 1631584256
 BOARD_SUPER_PARTITION_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_ODM_DEVICE_SIZE) + $(BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE) + $(BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE) )
 
 BOARD_SUPER_PARTITION_GROUPS := X2_dynpart
