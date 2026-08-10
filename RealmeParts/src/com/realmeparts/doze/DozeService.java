@@ -78,8 +78,11 @@ public class DozeService extends Service {
         return null;
     }
 
+    private static final String AOD_AREA_NODE = "/sys/kernel/oppo_display/aod_area";
+
     private void onDisplayOn() {
         if (DEBUG) Log.d(TAG, "Display on");
+        com.realmeparts.Utils.writeValue(AOD_AREA_NODE, "0");
         if (DozeUtils.isPickUpEnabled(this)) {
             mTiltSensor.disable();
         }
@@ -93,6 +96,7 @@ public class DozeService extends Service {
 
     private void onDisplayOff() {
         if (DEBUG) Log.d(TAG, "Display off");
+        com.realmeparts.Utils.writeValue(AOD_AREA_NODE, "1");
         if (DozeUtils.isPickUpEnabled(this)) {
             mTiltSensor.enable();
         }
