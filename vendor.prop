@@ -266,3 +266,7 @@ wifi.aware.interface=wifi-aware0
 
 # Zygote
 zygote.critical_window.minute=10
+
+# PASR
+vendor.pasr.activemode.enabled=true
+vendor.power.pasr.enabled=false
