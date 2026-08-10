@@ -153,9 +153,10 @@ PRODUCT_PACKAGES += \
     gnss@2.0-xtwifi-client.policy \
     gnss@2.0-xtwifi-inet-agent.policy
 
-# Health
+# Health & Thermal
 PRODUCT_PACKAGES += \
-    android.hardware.health-service.qti
+    android.hardware.health-service.qti \
+    android.hardware.thermal-service.qti
 
 # HotwordEnrollement app permissions
 PRODUCT_COPY_FILES += \
