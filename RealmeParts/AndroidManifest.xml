@@ -39,6 +39,11 @@
         android:allowBackup="true"
         android:fullBackupContent="true">
 
+	<provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:replace="android:authorities"/>
+
         <!-- Doze -->
         <activity
             android:name=".doze.DozeSettingsActivity"
@@ -86,16 +91,6 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
-        <activity
-            android:name=".speaker.ClearSpeakerActivity"
-            android:label="@string/clear_speaker_title"
-	    android:theme="@style/Theme.SubSettingsBase"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.settings.action.IA_SETTINGS" />
-            </intent-filter>
-        </activity>
 
         <!-- Quick Settings Tiles -->
         <service
@@ -188,10 +183,6 @@
         <service android:name="com.realmeparts.doze.DozeService"
                 android:exported="false">
         </service>
-        <provider
-            android:name="androidx.startup.InitializationProvider"
-            android:authorities="${applicationId}.androidx-startup"
-            tools:replace="android:authorities"/>
     </application>
 </manifest>
 
