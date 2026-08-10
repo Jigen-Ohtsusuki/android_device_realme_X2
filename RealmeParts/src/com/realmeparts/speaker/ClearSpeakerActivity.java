@@ -1,6 +1,5 @@
 /*
- * Copyright (C) 2015-2016 The CyanogenMod Project
- *               2017-2022 The LineageOS Project
+ * Copyright (C) 2020 Paranoid Android
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,21 +14,27 @@
  * limitations under the License.
  */
 
-package com.realmeparts.doze;
-
-import android.os.Bundle;
+package com.realmeparts.speaker;
 
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.MenuItem;
 
-public class DozeSettingsActivity extends CollapsingToolbarBaseActivity {
-
-    private static final String TAG_DOZE = "doze";
+public class ClearSpeakerActivity extends CollapsingToolbarBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getFragmentManager().beginTransaction().replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame,
-                new DozeSettingsFragment(), TAG_DOZE).commit();
+	Fragment fragment = getFragmentManager().findFragmentById(com.android.settingslib.collapsingtoolbar.R.id.content_frame);
+        ClearSpeakerFragment clearSpeakerFragment;
+        if (fragment == null) {
+            clearSpeakerFragment = new ClearSpeakerFragment();
+            getFragmentManager().beginTransaction()
+                    .add(com.android.settingslib.collapsingtoolbar.R.id.content_frame, clearSpeakerFragment)
+                    .commit();
+        }
     }
+
 }

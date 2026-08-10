@@ -57,6 +57,10 @@
     <string name="dnd_title">Do Not Disturb</string>
     <string name="dnd_summary">DND will be activated if Game Mode is enabled</string>
     <string name="game_mode_notif_content">Game Mode is activated</string>
+    <!-- battery saving mode -->
+    <string name="battery_saving_mode_summary">Reduce Boost Touch Sampling Rate, enables conservative governer.\nReduce cpu max frequencies</string>
+    <string name="battery_saving_mode_title">Battery Saving Mode</string>
+    <string name="battery_saving_mode_notif_content">Battery Saving Mode is activated</string>
     <!-- Refresh rate -->
     <string name="refresh_title">Screen Refresh Rate</string>
     <string name="tile_refresh_rate">Refresh Rate</string>
@@ -82,6 +86,9 @@
     <!-- Proximity sensor -->
     <string name="proximity_sensor_title">Proximity sensor</string>
 
+    <!-- FOD sensor-->
+    <string name="fod_sensor_title">FOD Sensor</string>
+    
     <!-- Pick-up gesture -->
     <string name="pick_up_gesture_title">Pick-up</string>
     <string name="pick_up_gesture_summary">Pulse notifications on pick-up</string>
@@ -102,4 +109,16 @@
     <string name="smart_wake_gesture_title">Smart Wake</string>
     <string name="smart_wake_gesture_summary">Pulse notifications on slight motion of device and wake screen when picked up</string>
         
+    <!-- FOD wake strings-->
+    <string name="fod_wake_gesture_title">Wake Screen with FOD</string>
+    <string name="fod_wake_gesture_summary">Enabling this allows to use Screen Off FOD Gesture</string>
+
+    <!-- Prevent FOD wake strings-->
+    <string name="fod_sleep_gesture_title">Prevent accidental wakes</string>
+    <string name="fod_sleep_gesture_summary">Turn off the display if the device does not unlock with Screen Off FOD Gesture</string>
+
+    <!-- Clear speaker -->
+    <string name="clear_speaker_title">Clear speaker</string>
+    <string name="clear_speaker_summary">Play a 30-second audio to clear the speaker</string>
+    <string name="clear_speaker_description">Run this feature once or twice if you find that your speaker is lightly blocked by dust. Set media volume to maximum.\n\nIf the speaker is blocked heavily, run this feature 2-5 times while shaking your device with the speaker facing downwards.\n\nWARNING: Ensure that any headphones are unplugged.</string>
 </resources>
