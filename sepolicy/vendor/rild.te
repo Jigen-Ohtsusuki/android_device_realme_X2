@@ -6,3 +6,14 @@ r_dir_file(rild, mnt_vendor_file);
 
 set_prop(rild, oppo_debug_prop);
 
+allow rild cache_file:dir { add_name create getattr search write };
+allow rild cache_file:file { create open write };
+get_prop(rild, default_prop)
+set_prop(rild, default_prop)
+allow rild radio_vendor_data_file:dir { add_name getattr search write };
+allow rild radio_vendor_data_file:file { create open write };
+set_prop(rild, system_prop)
+allow rild unlabeled:dir { search };
+allow rild unlabeled:file { open read write };
+allow rild vendor_data_file:dir { add_name write };
+allow rild vendor_data_file:file { create open write };
