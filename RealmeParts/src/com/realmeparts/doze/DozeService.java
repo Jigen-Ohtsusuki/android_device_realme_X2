@@ -36,9 +36,11 @@ public class DozeService extends Service {
     private BroadcastReceiver mScreenStateReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
+            if (intent.getAction().equals(Intent.ACTION_SCREEN_ON) ||
+                    intent.getAction().equals(Intent.ACTION_DREAMING_STOPPED)) {
                 onDisplayOn();
-            } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
+            } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF) ||
+                    intent.getAction().equals(Intent.ACTION_DREAMING_STARTED)) {
                 onDisplayOff();
             }
         }
@@ -54,6 +56,8 @@ public class DozeService extends Service {
         IntentFilter screenStateFilter = new IntentFilter();
         screenStateFilter.addAction(Intent.ACTION_SCREEN_ON);
         screenStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
+        screenStateFilter.addAction(Intent.ACTION_DREAMING_STARTED);
+        screenStateFilter.addAction(Intent.ACTION_DREAMING_STOPPED);
         registerReceiver(mScreenStateReceiver, screenStateFilter);
     }
 
