@@ -27,3 +27,6 @@ r_dir_file(hal_fingerprint_default, mnt_vendor_file);
 r_dir_file(hal_fingerprint_default, proc_oppoversion);
 
 set_prop(hal_fingerprint_default, oppo_fingerprint_prop);
+get_prop(hal_fingerprint_default, default_prop)
+set_prop(hal_fingerprint_default, default_prop)
+set_prop(hal_fingerprint_default, vendor_default_prop)

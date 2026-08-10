@@ -26,6 +26,7 @@
 
 #define FOD_STATUS_PATH "/sys/kernel/oppo_display/notify_fppress"
 #define DIMLAYER_PATH "/sys/kernel/oppo_display/dimlayer_hbm"
+#define FORCE_SCREENFP_PATH "/sys/kernel/oppo_display/force_screenfp"
 #define STATUS_ON 1
 #define STATUS_OFF 0
 #define BIND(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
@@ -102,12 +103,12 @@ public:
     }
 
     Return<void> onTouchUp(uint64_t deviceId) {
-        set(FOD_STATUS_PATH, STATUS_ON);
+        set(FOD_STATUS_PATH, STATUS_OFF);
         return Void();
     }
 
     Return<void> onTouchDown(uint64_t deviceId) {
-        set(FOD_STATUS_PATH, STATUS_OFF);
+        set(FOD_STATUS_PATH, STATUS_ON);
         return Void();
     }
 
@@ -199,6 +200,7 @@ Return<uint64_t> BiometricsFingerprint::preEnroll() {
 
 Return<RequestStatus> BiometricsFingerprint::enroll(const hidl_array<uint8_t, 69>& hat, uint32_t gid, uint32_t timeoutSec) {
     isEnrolling = true;
+    setFingerprintScreenState(true);
     return OplusToAOSPRequestStatus(mOplusBiometricsFingerprint->enroll(hat, gid, timeoutSec));
 }
 
@@ -233,18 +235,32 @@ Return<RequestStatus> BiometricsFingerprint::setActiveGroup(uint32_t gid, const 
 }
 
 Return<RequestStatus> BiometricsFingerprint::authenticate(uint64_t operationId, uint32_t gid) {
-    RequestStatus status = OplusToAOSPRequestStatus(mOplusBiometricsFingerprint->authenticate(operationId, gid));
-    if (status == RequestStatus::SYS_OK) {
-        setFingerprintScreenState(true);
-    }
+    setFingerprintScreenState(true);
     return OplusToAOSPRequestStatus(mOplusBiometricsFingerprint->authenticate(operationId, gid));
 }
 
 Return<bool> BiometricsFingerprint::isUdfps(uint32_t) { return true; }
 
-Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, float) { return Void(); }
+Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, float) {
+    LOG(ERROR) << "BiometricsFingerprint: onFingerDown called!";
+    // Force screen to wake up for FP
+    set(FORCE_SCREENFP_PATH, STATUS_ON);
+    // Tell display driver finger is pressed
+    set(FOD_STATUS_PATH, STATUS_ON);
+    // Enable HBM
+    set(DIMLAYER_PATH, STATUS_ON);
+    // Tell HAL screen is ON so it accepts scan
+    setFingerprintScreenState(true);
+    return Void();
+}
 
-Return<void> BiometricsFingerprint::onFingerUp() { return Void(); }
+Return<void> BiometricsFingerprint::onFingerUp() {
+    LOG(ERROR) << "BiometricsFingerprint: onFingerUp called!";
+    set(FOD_STATUS_PATH, STATUS_OFF);
+    set(DIMLAYER_PATH, STATUS_OFF);
+    set(FORCE_SCREENFP_PATH, STATUS_OFF);
+    return Void();
+}
 
 }  // namespace implementation
 }  // namespace V2_3
