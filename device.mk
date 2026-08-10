@@ -7,6 +7,7 @@
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/common/libqti-perfd-client
 
 # Add common definitions for Qualcomm
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
