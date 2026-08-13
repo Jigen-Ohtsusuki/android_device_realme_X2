@@ -22,3 +22,15 @@ Front Camera | 32MP
 
 ## Device picture
 ![realme X2](https://www.gizmochina.com/wp-content/uploads/2019/09/Realme-X2-2.jpg "realme X2 in blue")
+
+## Cloning
+Since this repository uses a git submodule for RealmeParts, you must clone it with the `--recurse-submodules` flag:
+
+```bash
+git clone --recurse-submodules https://github.com/Jigen-Ohtsusuki/android_device_realme_X2.git -b lineage-23.2
+```
+
+If you have already cloned the repository without the flag, you can initialize the submodule by running this inside the device tree:
+```bash
+git submodule update --init --recursive
+```
