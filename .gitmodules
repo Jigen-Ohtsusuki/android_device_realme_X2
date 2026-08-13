@@ -1,0 +1,4 @@
+[submodule "RealmeParts"]
+	path = RealmeParts
+	url = https://github.com/Jigen-Ohtsusuki/android_packages_apps_RealmeParts.git
+	branch = lineage-23.2
