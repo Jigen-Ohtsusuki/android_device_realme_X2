@@ -111,6 +111,9 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
 # Display
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.display.override_doze_mode=1
+
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.4-service \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
