@@ -17,3 +17,6 @@ set_prop(vendor_init, vendor_camera_prop);
 allow vendor_init vendor_rawdump_block_device:lnk_file { setattr };
 set_prop(vendor_init, vendor_reschedule_service_prop)
 dontaudit vendor_init init_service_status_prop:file read;
+
+# Allow vendor_init to access radio_data_file dir
+allow vendor_init radio_data_file:dir { search getattr read open };

@@ -1,8 +1,7 @@
-get_prop(rild, oppo_debug_prop);
-
-r_dir_file(rild, proc_devinfo);
-r_dir_file(rild, proc_oppo_rf);
-r_dir_file(rild, mnt_vendor_file);
-
-set_prop(rild, oppo_debug_prop);
-
+# Suppress noisy rild denials for core system files without violating neverallows
+dontaudit rild radio_data_file:dir r_dir_perms;
+dontaudit rild radio_data_file:file r_file_perms;
+dontaudit rild vendor_data_file:dir r_dir_perms;
+dontaudit rild vendor_data_file:file r_file_perms;
+dontaudit rild unlabeled:dir r_dir_perms;
+dontaudit rild unlabeled:file r_file_perms;

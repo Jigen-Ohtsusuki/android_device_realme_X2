@@ -1,3 +1,2 @@
 allow init proc_oppoversion:file { getattr open read };
-allow init sysfs:file { open write };
 allow init debugfs_tracing_debug:dir mounton;
