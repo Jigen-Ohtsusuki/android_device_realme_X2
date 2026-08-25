@@ -318,3 +318,6 @@ PRODUCT_PACKAGES += \
 
 # Inherit from vendor if exists
 $(call inherit-product-if-exists, vendor/realme/X2/X2-vendor.mk)
+
+# Dalvik Heap (Optimize for 4GB/6GB/8GB RAM)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
