@@ -99,10 +99,6 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider-service.lineage
 
-# Configstore
-PRODUCT_PACKAGES += \
-    disable_configstore
-
 # Dexpreopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
