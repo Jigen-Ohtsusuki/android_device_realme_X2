@@ -164,6 +164,9 @@ PRODUCT_PACKAGES += \
     ims_ext_common.xml \
     lib-imsvtshim
 
+#ION
+$(call soong_config_set_bool,libion,legacy_impl,true)
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gpio-keys.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/gpio-keys.kl
@@ -318,3 +321,4 @@ $(call inherit-product-if-exists, vendor/realme/X2/X2-vendor.mk)
 
 # Dalvik Heap (Optimize for 4GB/6GB/8GB RAM)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
+
